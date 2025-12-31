@@ -8,6 +8,13 @@ metadata:
 spec:
   {{- if .Values.STORAGE_CLASS }}
   storageClassName: {{ .Values.STORAGE_CLASS }}
+  {{- if .Values.STORAGE_RECLAIM_POLICY }}
+  persistentVolumeReclaimPolicy: {{ .Values.STORAGE_RECLAIM_POLICY }}
+  {{- end }}
+  {{- if .Values.STORAGE_LOCAL_BASE_PATH }}
+  local:
+    path: {{ .Values.STORAGE_LOCAL_BASE_PATH }}/nextcloud-aio-apache
+  {{- end }}
   {{- end }}
   accessModes:
     - ReadWriteOnce
