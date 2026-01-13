@@ -287,6 +287,8 @@ done
 
 # Additional config
 cat << EOL > /tmp/additional.config
+            - name: SKIP_DOMAIN_VALIDATION
+              value: "{{ .Values.SKIP_DOMAIN_VALIDATION }}"
             - name: SMTP_HOST
               value: "{{ .Values.SMTP_HOST }}"
             - name: SMTP_SECURE
@@ -327,6 +329,8 @@ find ./ -name '*fulltextsearch-deployment.yaml' -exec sed -i 's/{{ .Values.FULLT
 
 # Additional config
 cat << EOL > /tmp/additional-apache.config
+            - name: SKIP_DOMAIN_VALIDATION
+              value: "{{ .Values.SKIP_DOMAIN_VALIDATION }}"
             - name: ADDITIONAL_TRUSTED_DOMAIN
               value: "{{ .Values.ADDITIONAL_TRUSTED_DOMAIN }}"
 EOL
@@ -335,6 +339,8 @@ find ./ -name '*apache-deployment.yaml' -exec sed -i "/^.*\- env:/r /tmp/additio
 
 # Additional config
 cat << EOL > /tmp/additional-talk.config
+            - name: SKIP_DOMAIN_VALIDATION
+              value: "{{ .Values.SKIP_DOMAIN_VALIDATION }}"
             - name: TALK_MAX_STREAM_BITRATE
               value: "{{ .Values.TALK_MAX_STREAM_BITRATE }}"
             - name: TALK_MAX_SCREEN_BITRATE
@@ -457,6 +463,7 @@ MAIL_FROM_ADDRESS:         # (not set by default): Set the local-part for the 'f
 MAIL_DOMAIN:         # (not set by default): Set a different domain for the emails than the domain where Nextcloud is installed.
 TALK_MAX_STREAM_BITRATE: "1048576"         # This allows to adjust the max stream bitrate of the talk hpb
 TALK_MAX_SCREEN_BITRATE: "2097152"         # This allows to adjust the max stream bitrate of the talk hpb
+SKIP_DOMAIN_VALIDATION: "true" # Can be either true or false
 ADDITIONAL_CONFIG
 
 mv /tmp/sample.conf ../helm-chart/values.yaml

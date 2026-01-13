@@ -35,6 +35,8 @@ spec:
         {{- end }}
       containers:
         - env:
+            - name: SKIP_DOMAIN_VALIDATION
+              value: "{{ .Values.SKIP_DOMAIN_VALIDATION }}"
             - name: ADDITIONAL_TRUSTED_DOMAIN
               value: "{{ .Values.ADDITIONAL_TRUSTED_DOMAIN }}"
             - name: APACHE_HOST

@@ -34,6 +34,8 @@ spec:
               mountPath: /nextcloud-aio-onlyoffice
       containers:
         - env:
+            - name: SKIP_DOMAIN_VALIDATION
+              value: "{{ .Values.SKIP_DOMAIN_VALIDATION }}"
             - name: JWT_ENABLED
               value: "true"
             - name: JWT_HEADER
