@@ -73,3 +73,5 @@ MAIL_FROM_ADDRESS:         # (not set by default): Set the local-part for the 'f
 MAIL_DOMAIN:         # (not set by default): Set a different domain for the emails than the domain where Nextcloud is installed.
 TALK_MAX_STREAM_BITRATE: "1048576"         # This allows to adjust the max stream bitrate of the talk hpb
 TALK_MAX_SCREEN_BITRATE: "2097152"         # This allows to adjust the max stream bitrate of the talk hpb
+
+SKIP_DOMAIN_VALIDATION: "true" # Can be either true or false

@@ -52,6 +52,8 @@ spec:
 # AIO settings end # Do not remove or change this line!
       containers:
         - env:
+            - name: SKIP_DOMAIN_VALIDATION
+              value: "{{ .Values.SKIP_DOMAIN_VALIDATION }}"
             - name: SMTP_HOST
               value: "{{ .Values.SMTP_HOST }}"
             - name: SMTP_SECURE
